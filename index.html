@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="description" content="Roblox builder, map designer & 3D modeler — portfolio and commissions.">
+<title>Portfolio</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="logo" id="logo">FROST<span>WORKS</span></a>
+    <ul class="links" id="links">
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#vouches">Vouches</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="menu">☰</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="fx"></canvas>
+  <div class="badge" id="badge">OPEN FOR COMMS</div>
+  <div class="wrap">
+    <p class="kicker reveal" id="roles">Roblox Artist · Builder · Map Designer</p>
+    <h1>
+      <span class="l1 reveal">Maps.</span><br>
+      <span class="l2 reveal" data-delay="1">Models.</span><br>
+      <span class="l3 reveal" data-delay="2" data-text="Worlds.">Worlds.</span>
+    </h1>
+    <p class="sub reveal" data-delay="2" id="tagline">High-detail builds with that glow.</p>
+    <div class="cta reveal" data-delay="3">
+      <a href="#work" class="btn btn-ice">View Work</a>
+      <a href="#contact" class="btn btn-ghost">Hire Me</a>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="skills">
+  <div class="wrap">
+    <p class="label reveal">What I do</p>
+    <h2 class="reveal">Skills</h2>
+    <div class="skills-grid" id="skillsGrid"></div>
+  </div>
+</section>
+
+<section class="section alt" id="work">
+  <div class="wrap">
+    <p class="label reveal">Portfolio</p>
+    <h2 class="reveal">Selected Work</h2>
+    <div class="pills reveal" id="pills"></div>
+    <div class="work-grid" id="workGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="vouches">
+  <div class="wrap">
+    <p class="label reveal">Reviews</p>
+    <h2 class="reveal">Client Vouches</h2>
+  </div>
+  <div class="marquee reveal"><div class="track" id="track"></div></div>
+</section>
+
+<section class="section alt contact" id="contact">
+  <div class="wrap">
+    <p class="label reveal">Get in touch</p>
+    <h2 class="reveal">Let's Build Something</h2>
+    <div class="status reveal" id="status"><i></i><span>Commissions: OPEN</span></div>
+    <div class="contact-btns reveal" data-delay="1">
+      <button class="btn btn-ice" id="copyDiscord">💬 Copy my Discord<span class="tip" id="tip">Copied!</span></button>
+      <a class="btn btn-ghost" id="mailBtn" href="#">✉️ Email me</a>
+    </div>
+    <div class="socials reveal" data-delay="2" id="socials"></div>
+  </div>
+</section>
+
+<footer><span id="footLine"></span></footer>
+
+<div class="lb" id="lb">
+  <button class="x" id="lbX" aria-label="close">✕</button>
+  <button class="prev" id="lbPrev" aria-label="previous">←</button>
+  <button class="next" id="lbNext" aria-label="next">→</button>
+  <figure>
+    <img id="lbImg" src="assets/work/placeholder-1.svg" alt="">
+    <figcaption>
+      <div><h3 id="lbTitle"></h3><p id="lbBlurb"></p></div>
+      <span class="label" id="lbCat"></span>
+    </figcaption>
+  </figure>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
