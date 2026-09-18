@@ -83,6 +83,23 @@ function render() {
   xcard.append(el('span', 'xmark', '𝕏'), el('div', 'xtitle', 'View More on X →'), el('div', 'xsub', 'New work posted regularly'));
   $('#miniGrid').append(xcard);
 
+  // worked-with groups strip
+  for (const g of (cfg.groups || [])) {
+    try {
+      const a = el('a', 'gcard reveal');
+      a.href = g.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+      const ic = el('img', 'gicon');
+      ic.src = g.icon; ic.alt = g.name;
+      ic.onerror = () => ic.remove();
+      const meta = el('div');
+      const nm = el('div', 'gname', g.name);
+      if (g.verified) nm.append(el('span', 'gcheck', ' ✓'));
+      meta.append(nm, el('div', 'gmem', g.members + ' members'));
+      a.append(ic, meta);
+      $('#groupsRow').append(a);
+    } catch (e) { console.warn('skipped group', g, e); }
+  }
+
   // vouches (twice for seamless loop)
   const vouchCard = v => {
     const c = el('div', 'vouch');

@@ -19,6 +19,15 @@ const SITE = {
     { label: "YouTube", url: "https://youtube.com/" }
   ],
 
+  // notable groups I've delivered work for — icons in assets/groups/
+  groups: [
+    { name: "Boho Salon", members: "1.3M+", verified: false, icon: "assets/groups/boho-salon.png", url: "https://www.roblox.com/communities/2868558/Boho-Salon" },
+    { name: "Avatar Fighting Team", members: "510K+", verified: true, icon: "assets/groups/avatar-fighting-team.png", url: "https://www.roblox.com/communities/32539357/Avatar-Fighting-Team" },
+    { name: "Hi-Fun Interactive", members: "150K+", verified: true, icon: "assets/groups/hi-fun.png", url: "https://www.roblox.com/communities/33912907/Hi-Fun-Interactive" },
+    { name: "20 v 1", members: "135K+", verified: true, icon: "assets/groups/20v1.png", url: "https://www.roblox.com/communities/35198021/20-v-1" },
+    { name: "Evolution Artworks", members: "95K+", verified: false, icon: "assets/groups/evolution-artworks.png", url: "https://www.roblox.com/communities/4724903/Evolution-Artworks" }
+  ],
+
   skills: [
     { name: "Building",     level: 95, icon: "🏗️", blurb: "Showcase-grade environment builds with proper lighting and detail passes." },
     { name: "Map Design",   level: 90, icon: "🗺️", blurb: "Playable layouts that flow — sightlines, routes and pacing thought through." },

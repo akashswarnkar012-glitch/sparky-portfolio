@@ -119,6 +119,17 @@ main, .hero, .nav, footer { position:relative; z-index:1; }
 .pillbtn { margin-top:20px; background:rgba(21,26,36,.85); border:1px solid var(--line); color:var(--silver); padding:11px 22px; border-radius:999px; font-weight:600; font-size:.85rem; transition:transform .25s ease, border-color .25s ease; }
 .pillbtn:hover { transform:translateY(-2px); border-color:var(--ice); }
 
+/* worked-with groups strip */
+.groups-sec { padding:70px 0; }
+.ice { color:var(--ice); font-weight:700; }
+.groups-row { display:flex; flex-wrap:wrap; justify-content:center; gap:14px; }
+.gcard { display:flex; align-items:center; gap:12px; background:rgba(21,26,36,.6); border:1px solid var(--line); border-radius:999px; padding:10px 24px 10px 12px; transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.gcard:hover { transform:translateY(-3px); border-color:rgba(147,197,253,.45); box-shadow:0 10px 30px rgba(147,197,253,.1); }
+.gicon { width:42px; height:42px; border-radius:50%; border:1px solid var(--line); object-fit:cover; }
+.gname { color:var(--text); font-weight:700; font-size:.92rem; line-height:1.25; }
+.gcheck { color:var(--ice); font-size:.85rem; }
+.gmem { color:var(--muted); font-size:.75rem; }
+
 /* more builds mini grid */
 .more-title { font-size:1.3rem; font-weight:700; margin:72px 0 24px; }
 .minigrid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
