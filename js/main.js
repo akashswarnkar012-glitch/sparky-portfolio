@@ -114,6 +114,10 @@ function render() {
   for (const v of cfg.vouches) { try { $('#track').append(vouchCard(v)); } catch (e) { console.warn('skipped vouch', v, e); } }
   for (const v of cfg.vouches) { try { $('#track').append(vouchCard(v)); } catch (e) { console.warn('skipped vouch', v, e); } }
   $('#track').style.setProperty('--dur', cfg.vouches.length * 6 + 's');
+  if (!cfg.vouches.length) {
+    $('#vouches').style.display = 'none';
+    document.querySelectorAll('a[href="#vouches"]').forEach(a => a.parentElement.style.display = 'none');
+  }
 
   // contact
   $('#mailBtn').href = 'mailto:' + cfg.email;

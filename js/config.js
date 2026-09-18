@@ -50,12 +50,7 @@ const SITE = {
     { title: "Sky Temple", cat: "maps", img: "assets/work/sky-temple.jpg", blurb: "Dreamlike sky-temple map — pastel colonnades, domed pavilion and glowing braziers above the clouds." }
   ],
 
-  vouches: [
-    { name: "blox_dev",     stars: 5, when: "Aug 2026", quote: "Insane quality and finished 2 days early. Instant re-hire." },
-    { name: "studio_mike",  stars: 5, when: "Jul 2026", quote: "Best map designer I've commissioned, communication was top tier." },
-    { name: "rblx_tycoon",  stars: 5, when: "Jul 2026", quote: "The build straight up carried our game's front page push." },
-    { name: "gamedev_ana",  stars: 4, when: "Jun 2026", quote: "Great models, minor revisions handled fast. Recommended." },
-    { name: "pixel_wolf",   stars: 5, when: "May 2026", quote: "Understood the vibe from one reference image. Wild." },
-    { name: "sky_forge",    stars: 5, when: "Apr 2026", quote: "Fair pricing, clean optimized builds. My go-to now." }
-  ]
+  // reviews section hides itself while this is empty — add real vouches like:
+  // { name: "client_name", stars: 5, when: "Sep 2026", quote: "..." }
+  vouches: []
 };
