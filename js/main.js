@@ -47,7 +47,7 @@ function render() {
       const row = el('div', 'workrow reveal');
       const media = el('div', 'media');
       const img = el('img');
-      img.src = p.img; img.alt = p.title; img.loading = 'lazy';
+      img.src = p.img; img.alt = p.title;
       img.onerror = () => { img.onerror = null; img.src = 'assets/work/placeholder-1.svg'; };
       media.append(img);
       media.onclick = () => openLb(i);

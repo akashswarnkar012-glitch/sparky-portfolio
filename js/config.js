@@ -33,7 +33,8 @@ const SITE = {
     { title: "Boho Salon", cat: "builds", img: "assets/work/salon.jpg", blurb: "Commissioned storefront + street scene for @BohoSalonn's grand reopening — palms, flower beds and neon signage." },
     { title: "Anime Street", cat: "maps", img: "assets/work/anime-street.jpg", blurb: "Anime-style Japanese street — full block with storefronts, crosswalks and cel-shaded sky vibes." },
     { title: "Neon Sci-Fi Corridor", cat: "builds", img: "assets/work/neon-corridor.jpg", blurb: "Glow-heavy sci-fi interior with teleporter pods and layered neon lighting." },
-    { title: "New Vegas Wasteland", cat: "maps", img: "assets/work/new-vegas.jpg", blurb: "Post-apocalyptic strip environment — ruined overpasses, casino skyline and dusty sunset atmosphere." }
+    { title: "New Vegas Wasteland", cat: "maps", img: "assets/work/new-vegas.jpg", blurb: "Post-apocalyptic strip environment — ruined overpasses, casino skyline and dusty sunset atmosphere." },
+    { title: "Sky Temple", cat: "maps", img: "assets/work/sky-temple.jpg", blurb: "Dreamlike sky-temple map — pastel colonnades, domed pavilion and glowing braziers above the clouds." }
   ],
 
   vouches: [

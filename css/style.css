@@ -88,8 +88,8 @@ main, .hero, .nav, footer { position:relative; z-index:1; }
 @keyframes wheel { 0%{transform:translateY(0);opacity:1} 70%{transform:translateY(10px);opacity:0} 100%{transform:translateY(0);opacity:0} }
 
 /* section shells */
-.section { padding:120px 0; }
-.sec-head { text-align:center; margin-bottom:52px; }
+.section { padding:90px 0; }
+.sec-head { text-align:center; margin-bottom:44px; }
 .sec-head h2 { font-size:clamp(1.7rem,3.6vw,2.4rem); font-weight:700; letter-spacing:-.01em; }
 .sec-sub { color:var(--muted); font-size:.95rem; margin-top:8px; }
 
