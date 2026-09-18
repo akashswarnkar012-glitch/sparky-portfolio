@@ -11,76 +11,112 @@
 </head>
 <body>
 
+<canvas id="stars" aria-hidden="true"></canvas>
+
 <nav class="nav" id="nav">
-  <div class="wrap">
-    <a href="#top" class="logo" id="logo">FROST<span>WORKS</span></a>
+  <div class="pillbar">
+    <a href="#top" class="brand">
+      <span class="ava" id="ava">FW</span>
+      <span class="bname" id="navAlias">FROSTWORKS</span>
+    </a>
     <ul class="links" id="links">
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#vouches">Vouches</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a class="navlink" href="#skills">Skills</a></li>
+      <li><a class="navlink" href="#work">Work</a></li>
+      <li><a class="navlink" href="#vouches">Reviews</a></li>
+      <li><a class="navlink" href="#contact">Contact</a></li>
+      <li><a class="hire" href="#contact">Hire Me <span class="arr">→</span></a></li>
     </ul>
     <button class="burger" id="burger" aria-label="menu">☰</button>
   </div>
 </nav>
 
 <header class="hero" id="top">
-  <canvas id="fx"></canvas>
-  <div class="badge" id="badge">OPEN FOR COMMS</div>
-  <div class="wrap">
-    <p class="kicker reveal" id="roles">Roblox Artist · Builder · Map Designer</p>
-    <h1>
-      <span class="l1 reveal">Maps.</span><br>
-      <span class="l2 reveal" data-delay="1">Models.</span><br>
-      <span class="l3 reveal" data-delay="2" data-text="Worlds.">Worlds.</span>
+  <div class="orbits" aria-hidden="true">
+    <div class="ring r1"></div>
+    <div class="ring r2"><span class="chipico ci1">🧱</span><span class="chipico ci2">🗺️</span></div>
+    <div class="ring r3"><span class="chipico ci3">🧊</span><span class="chipico ci4">⚒️</span></div>
+  </div>
+  <div class="wrap hero-inner">
+    <p class="kicker reveal" id="kicker">Roblox Artist · Builder · Map Designer</p>
+    <div class="chip-status reveal" id="statusChip"><i></i>Open for commissions</div>
+    <h1 class="reveal" data-delay="1">
+      <span id="h1a">Roblox Building</span><br>
+      <span class="squigwrap"><span id="h1b">&amp; Map Design</span>
+        <svg class="squig" viewBox="0 0 260 14" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M3 10 C 40 2, 70 12, 105 8 S 175 3, 257 7"/>
+        </svg>
+      </span>
     </h1>
     <p class="sub reveal" data-delay="2" id="tagline">High-detail builds with that glow.</p>
     <div class="cta reveal" data-delay="3">
-      <a href="#work" class="btn btn-ice">View Work</a>
+      <a href="#work" class="btn btn-primary">View My Work</a>
       <a href="#contact" class="btn btn-ghost">Hire Me</a>
     </div>
   </div>
+  <div class="scrollcue" aria-hidden="true"><span class="txt">SCROLL</span><span class="wheel"></span></div>
 </header>
+
+<main>
 
 <section class="section" id="skills">
   <div class="wrap">
-    <p class="label reveal">What I do</p>
-    <h2 class="reveal">Skills</h2>
+    <div class="sec-head reveal">
+      <h2>What I do</h2>
+      <p class="sec-sub">The skills behind the builds.</p>
+    </div>
     <div class="skills-grid" id="skillsGrid"></div>
   </div>
 </section>
 
-<section class="section alt" id="work">
+<section class="section" id="work">
   <div class="wrap">
-    <p class="label reveal">Portfolio</p>
-    <h2 class="reveal">Selected Work</h2>
-    <div class="pills reveal" id="pills"></div>
-    <div class="work-grid" id="workGrid"></div>
+    <div class="sec-head reveal">
+      <h2>Recent work</h2>
+      <p class="sec-sub">Builds, maps and models — click any to view full size.</p>
+    </div>
+    <div class="workrows" id="workRows"></div>
   </div>
 </section>
 
 <section class="section" id="vouches">
   <div class="wrap">
-    <p class="label reveal">Reviews</p>
-    <h2 class="reveal">Client Vouches</h2>
+    <div class="sec-head reveal">
+      <h2>Client reviews</h2>
+      <p class="sec-sub">What people say after working with me.</p>
+    </div>
   </div>
   <div class="marquee reveal"><div class="track" id="track"></div></div>
 </section>
 
-<section class="section alt contact" id="contact">
+<section class="section contact" id="contact">
   <div class="wrap">
-    <p class="label reveal">Get in touch</p>
-    <h2 class="reveal">Let's Build Something</h2>
+    <div class="sec-head reveal">
+      <h2>Let's build something</h2>
+      <p class="sec-sub">Fastest way to reach me is Discord.</p>
+    </div>
     <div class="status reveal" id="status"><i></i><span>Commissions: OPEN</span></div>
     <div class="contact-btns reveal" data-delay="1">
-      <button class="btn btn-ice" id="copyDiscord">💬 Copy my Discord<span class="tip" id="tip">Copied!</span></button>
-      <a class="btn btn-ghost" id="mailBtn" href="#">✉️ Email me</a>
+      <button class="btn btn-primary" id="copyDiscord">Copy my Discord<span class="tip" id="tip">Copied!</span></button>
+      <a class="btn btn-ghost" id="mailBtn" href="#">Email me</a>
     </div>
     <div class="socials reveal" data-delay="2" id="socials"></div>
   </div>
 </section>
 
-<footer><span id="footLine"></span></footer>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a href="#top" class="brand"><span class="ava" id="footAva">FW</span><span class="bname" id="footAlias">FROSTWORKS</span></a>
+    <ul class="footlinks">
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#vouches">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <span class="copy" id="footLine"></span>
+  </div>
+</footer>
 
 <div class="lb" id="lb">
   <button class="x" id="lbX" aria-label="close">✕</button>
@@ -90,7 +126,7 @@
     <img id="lbImg" src="assets/work/placeholder-1.svg" alt="">
     <figcaption>
       <div><h3 id="lbTitle"></h3><p id="lbBlurb"></p></div>
-      <span class="label" id="lbCat"></span>
+      <span class="tag" id="lbCat"></span>
     </figcaption>
   </figure>
 </div>

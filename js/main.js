@@ -1,4 +1,4 @@
-// frost portfolio — no libs, just vanilla
+// frost portfolio — vanilla, no libs
 const cfg = SITE;
 const $ = s => document.querySelector(s);
 
@@ -9,22 +9,21 @@ function el(tag, cls, txt) {
   return n;
 }
 
-let curCat = 'all';
-
-let openLb = p => console.log('lightbox soon:', p.title); // reassigned in a later pass
-
 function render() {
   document.title = cfg.alias + ' — Roblox Builder & Map Designer';
-  const a = cfg.alias, half = Math.ceil(a.length / 2);
-  const logo = $('#logo');
-  logo.textContent = a.slice(0, half);
-  logo.append(el('span', null, a.slice(half)));
-  $('#roles').textContent = cfg.roles;
+  const initials = cfg.alias.slice(0, 2).toUpperCase();
+  $('#ava').textContent = initials;
+  $('#footAva').textContent = initials;
+  $('#navAlias').textContent = cfg.alias;
+  $('#footAlias').textContent = cfg.alias;
+  $('#kicker').textContent = cfg.roles;
+  if (cfg.headline1) $('#h1a').textContent = cfg.headline1;
+  if (cfg.headline2) $('#h1b').textContent = cfg.headline2;
   $('#tagline').textContent = cfg.tagline;
-  $('#footLine').textContent = '© ' + new Date().getFullYear() + ' ' + a + ' — built from scratch, no templates';
+  $('#footLine').textContent = '© ' + new Date().getFullYear() + ' ' + cfg.alias + ' — built from scratch, no templates';
 
   if (!cfg.commsOpen) {
-    $('#badge').classList.add('hidden');
+    $('#statusChip').classList.add('hidden');
     $('#status').classList.add('closed');
     $('#status span').textContent = 'Commissions: CLOSED';
   }
@@ -42,31 +41,27 @@ function render() {
     } catch (e) { console.warn('skipped skill', s, e); }
   }
 
-  // gallery pills
-  const cats = ['all', ...new Set(cfg.projects.map(p => p.cat))];
-  for (const c of cats) {
-    const b = el('button', 'pill' + (c === 'all' ? ' active' : ''), c[0].toUpperCase() + c.slice(1));
-    b.dataset.cat = c;
-    $('#pills').append(b);
-  }
-
-  // gallery cards
-  for (const p of cfg.projects) {
+  // work rows
+  cfg.projects.forEach((p, i) => {
     try {
-      const card = el('div', 'work reveal');
-      card.dataset.cat = p.cat;
+      const row = el('div', 'workrow reveal');
+      const media = el('div', 'media');
       const img = el('img');
       img.src = p.img; img.alt = p.title; img.loading = 'lazy';
       img.onerror = () => { img.onerror = null; img.src = 'assets/work/placeholder-1.svg'; };
-      const cap = el('div', 'cap');
-      cap.append(el('span', null, p.cat), el('h3', null, p.title));
-      card.append(img, cap);
-      card.onclick = () => openLb(p);
-      $('#workGrid').append(card);
+      media.append(img);
+      media.onclick = () => openLb(i);
+      const info = el('div', 'info');
+      info.append(el('span', 'tag', p.cat), el('h3', null, p.title), el('p', null, p.blurb));
+      const btn = el('button', 'pillbtn', 'View full size');
+      btn.onclick = () => openLb(i);
+      info.append(btn);
+      row.append(media, info);
+      $('#workRows').append(row);
     } catch (e) { console.warn('skipped project', p, e); }
-  }
+  });
 
-  // vouches (twice, for the seamless marquee loop later)
+  // vouches (twice for seamless loop)
   const vouchCard = v => {
     const c = el('div', 'vouch');
     const top = el('div', 'top');
@@ -89,5 +84,100 @@ function render() {
     $('#socials').append(link);
   }
 }
-
 render();
+
+// ---- lightbox ----
+let at = 0;
+function showLb() {
+  const p = cfg.projects[at];
+  $('#lbImg').src = p.img;
+  $('#lbImg').alt = p.title;
+  $('#lbTitle').textContent = p.title;
+  $('#lbBlurb').textContent = p.blurb;
+  $('#lbCat').textContent = p.cat;
+}
+function openLb(i) { at = i; showLb(); $('#lb').classList.add('open'); }
+function closeLb() { $('#lb').classList.remove('open'); }
+function stepLb(d) { at = (at + d + cfg.projects.length) % cfg.projects.length; showLb(); }
+
+$('#lbX').onclick = closeLb;
+$('#lbPrev').onclick = () => stepLb(-1);
+$('#lbNext').onclick = () => stepLb(1);
+$('#lb').onclick = e => { if (e.target === $('#lb')) closeLb(); };
+document.addEventListener('keydown', e => {
+  if (!$('#lb').classList.contains('open')) return;
+  if (e.key === 'Escape') closeLb();
+  if (e.key === 'ArrowLeft') stepLb(-1);
+  if (e.key === 'ArrowRight') stepLb(1);
+});
+
+// ---- copy discord ----
+let tipT;
+$('#copyDiscord').onclick = async () => {
+  try {
+    await navigator.clipboard.writeText(cfg.discord);
+    $('#tip').classList.add('show');
+    clearTimeout(tipT);
+    tipT = setTimeout(() => $('#tip').classList.remove('show'), 1600);
+  } catch {
+    window.prompt('Copy my discord:', cfg.discord);
+  }
+};
+
+// ---- nav ----
+addEventListener('scroll', () => $('#nav').classList.toggle('scrolled', scrollY > 30), { passive: true });
+$('#burger').onclick = () => {
+  const open = $('#links').classList.toggle('open');
+  $('#burger').textContent = open ? '✕' : '☰';
+};
+document.querySelectorAll('.links a').forEach(a => a.addEventListener('click', () => {
+  $('#links').classList.remove('open');
+  $('#burger').textContent = '☰';
+}));
+const nio = new IntersectionObserver(es => {
+  for (const e of es) if (e.isIntersecting) {
+    document.querySelectorAll('.navlink').forEach(l =>
+      l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+  }
+}, { rootMargin: '-40% 0px -55% 0px' });
+document.querySelectorAll('section[id], header[id]').forEach(s => nio.observe(s));
+
+// ---- scroll reveals ----
+const io = new IntersectionObserver(es => {
+  for (const e of es) if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}, { threshold: .15 });
+document.querySelectorAll('.reveal').forEach(n => io.observe(n));
+
+// ---- starfield ----
+(function () {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const cv = $('#stars'), ctx = cv.getContext('2d');
+  let w, h, raf = 0, running = false, t = 0;
+  function size() { w = cv.width = innerWidth; h = cv.height = innerHeight; }
+  size();
+  addEventListener('resize', size);
+  const N = innerWidth < 640 ? 60 : 130;
+  const stars = [];
+  for (let i = 0; i < N; i++) stars.push({
+    x: Math.random(), y: Math.random(),
+    r: Math.random() * 1.2 + .3,
+    tw: Math.random() * 6.28,
+    sp: Math.random() * .5 + .2
+  });
+  function tick() {
+    t += .016;
+    ctx.clearRect(0, 0, w, h);
+    for (const s of stars) {
+      const o = .2 + .5 * Math.abs(Math.sin(t * s.sp + s.tw));
+      ctx.beginPath();
+      ctx.arc(s.x * w, (s.y * h + t * 6 * s.sp) % h, s.r, 0, 7);
+      ctx.fillStyle = 'rgba(196,222,255,' + o + ')';
+      ctx.fill();
+    }
+    raf = requestAnimationFrame(tick);
+  }
+  function play() { if (!running) { running = true; tick(); } }
+  function stop() { running = false; cancelAnimationFrame(raf); }
+  play();
+  document.addEventListener('visibilitychange', () => document.hidden ? stop() : play());
+})();

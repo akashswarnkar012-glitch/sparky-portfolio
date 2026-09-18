@@ -6,6 +6,8 @@
 const SITE = {
   alias: "FROSTWORKS",            // your name/alias (shows in logo, title, footer)
   roles: "Roblox Artist · Builder · Map Designer",
+  headline1: "Roblox Building",   // hero line 1
+  headline2: "& Map Design",      // hero line 2 (gets the underline squiggle)
   tagline: "High-detail builds, maps and models — made to order.",
   commsOpen: true,                // false = hides the badge + flips status to CLOSED
 
