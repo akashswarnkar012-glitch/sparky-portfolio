@@ -4,18 +4,18 @@
 //  and change the img path below.
 // ============================================================
 const SITE = {
-  alias: "FROSTWORKS",            // your name/alias (shows in logo, title, footer)
+  alias: "SPARKY",                // your name/alias (shows in logo, title, footer)
   roles: "Roblox Artist · Builder · Map Designer",
   headline1: "Roblox Building",   // hero line 1
   headline2: "& Map Design",      // hero line 2 (gets the underline squiggle)
   tagline: "High-detail builds, maps and models — made to order.",
   commsOpen: true,                // false = hides the badge + flips status to CLOSED
 
-  discord: "yourdiscord",         // what the copy button copies
+  discord: "Sparky2668",          // what the copy button copies
   email: "you@example.com",
   socials: [
     { label: "Roblox",  url: "https://www.roblox.com/" },
-    { label: "X / Twitter", url: "https://x.com/" },
+    { label: "X / Twitter", url: "https://x.com/SparkyDeveloper" },
     { label: "YouTube", url: "https://youtube.com/" }
   ],
 
@@ -27,7 +27,7 @@ const SITE = {
   ],
 
   projects: [
-    { title: "Frost Castle",   cat: "builds", img: "assets/work/placeholder-1.svg", blurb: "Winter showcase build with custom lighting." },
+    { title: "Space Station Map", cat: "maps", img: "assets/work/space-station.jpg", blurb: "Commissioned space station map for @localnightdev — full interior with glass dome, neon signage and custom lighting." },
     { title: "Neon Arena",     cat: "builds", img: "assets/work/placeholder-2.svg", blurb: "PvP arena build, glow-heavy style." },
     { title: "Lost Temple",    cat: "maps",   img: "assets/work/placeholder-3.svg", blurb: "Adventure map with layered routes." },
     { title: "City Block",     cat: "builds", img: "assets/work/placeholder-4.svg", blurb: "Modular city set for an RP game." },
