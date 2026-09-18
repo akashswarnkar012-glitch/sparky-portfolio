@@ -1,5 +1,6 @@
 // frost portfolio — vanilla, no libs
 const cfg = SITE;
+const works = [...cfg.projects, ...(cfg.moreBuilds || [])];
 const $ = s => document.querySelector(s);
 
 function el(tag, cls, txt) {
@@ -61,6 +62,27 @@ function render() {
     } catch (e) { console.warn('skipped project', p, e); }
   });
 
+  // more builds mini grid
+  (cfg.moreBuilds || []).forEach((p, j) => {
+    try {
+      const card = el('div', 'mini reveal');
+      const imWrap = el('div', 'mini-img');
+      const img = el('img');
+      img.src = p.img; img.alt = p.title;
+      img.onerror = () => { img.onerror = null; img.src = 'assets/work/placeholder-1.svg'; };
+      imWrap.append(img);
+      card.append(imWrap, el('h3', null, p.title));
+      card.onclick = () => openLb(cfg.projects.length + j);
+      $('#miniGrid').append(card);
+    } catch (e) { console.warn('skipped mini', p, e); }
+  });
+  const xSocial = cfg.socials.find(s => /twitter/i.test(s.label) || s.label.trim().toLowerCase().startsWith('x'));
+  const xcard = el('a', 'xcard reveal');
+  xcard.href = xSocial ? xSocial.url : 'https://x.com/';
+  xcard.target = '_blank'; xcard.rel = 'noopener noreferrer';
+  xcard.append(el('span', 'xmark', '𝕏'), el('div', 'xtitle', 'View More on X →'), el('div', 'xsub', 'New work posted regularly'));
+  $('#miniGrid').append(xcard);
+
   // vouches (twice for seamless loop)
   const vouchCard = v => {
     const c = el('div', 'vouch');
@@ -89,7 +111,7 @@ render();
 // ---- lightbox ----
 let at = 0;
 function showLb() {
-  const p = cfg.projects[at];
+  const p = works[at];
   $('#lbImg').src = p.img;
   $('#lbImg').alt = p.title;
   $('#lbTitle').textContent = p.title;
@@ -98,7 +120,7 @@ function showLb() {
 }
 function openLb(i) { at = i; showLb(); $('#lb').classList.add('open'); }
 function closeLb() { $('#lb').classList.remove('open'); }
-function stepLb(d) { at = (at + d + cfg.projects.length) % cfg.projects.length; showLb(); }
+function stepLb(d) { at = (at + d + works.length) % works.length; showLb(); }
 
 $('#lbX').onclick = closeLb;
 $('#lbPrev').onclick = () => stepLb(-1);
