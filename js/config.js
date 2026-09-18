@@ -28,13 +28,12 @@ const SITE = {
 
   projects: [
     { title: "Space Station Map", cat: "maps", img: "assets/work/space-station.jpg", blurb: "Commissioned space station map for @localnightdev — full interior with glass dome, neon signage and custom lighting." },
-    { title: "Neon Arena",     cat: "builds", img: "assets/work/placeholder-2.svg", blurb: "PvP arena build, glow-heavy style." },
-    { title: "Lost Temple",    cat: "maps",   img: "assets/work/placeholder-3.svg", blurb: "Adventure map with layered routes." },
-    { title: "City Block",     cat: "builds", img: "assets/work/placeholder-4.svg", blurb: "Modular city set for an RP game." },
-    { title: "Sci-Fi Lab",     cat: "maps",   img: "assets/work/placeholder-5.svg", blurb: "Story map — lab interior, full detail pass." },
-    { title: "Medieval Keep",  cat: "maps",   img: "assets/work/placeholder-6.svg", blurb: "Siege map with destructible props." },
-    { title: "Weapon Pack",    cat: "models", img: "assets/work/placeholder-7.svg", blurb: "12-piece stylized weapon set." },
-    { title: "Vehicle Model",  cat: "models", img: "assets/work/placeholder-8.svg", blurb: "Rigged vehicle, game-ready." }
+    { title: "Grand Manor Hall", cat: "builds", img: "assets/work/manor-hall.jpg", blurb: "Luxury manor great hall — double balconies, grand staircase, checkered marble and warm candlelit detailing." },
+    { title: "Oriental Temple Grounds", cat: "maps", img: "assets/work/oriental-temple.jpg", blurb: "Stylized oriental water temple — moon-gate arches, lantern bridges and soft god-ray lighting." },
+    { title: "Boho Salon", cat: "builds", img: "assets/work/salon.jpg", blurb: "Commissioned storefront + street scene for @BohoSalonn's grand reopening — palms, flower beds and neon signage." },
+    { title: "Anime Street", cat: "maps", img: "assets/work/anime-street.jpg", blurb: "Anime-style Japanese street — full block with storefronts, crosswalks and cel-shaded sky vibes." },
+    { title: "Neon Sci-Fi Corridor", cat: "builds", img: "assets/work/neon-corridor.jpg", blurb: "Glow-heavy sci-fi interior with teleporter pods and layered neon lighting." },
+    { title: "New Vegas Wasteland", cat: "maps", img: "assets/work/new-vegas.jpg", blurb: "Post-apocalyptic strip environment — ruined overpasses, casino skyline and dusty sunset atmosphere." }
   ],
 
   vouches: [
