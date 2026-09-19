@@ -21,6 +21,7 @@ const SITE = {
   // typed line under the groups strip
   typerPhrases: [
     "Contributed to games with 500M+ combined visits",
+    "6+ years of building & map design experience",
     "Trusted by communities with 2.2M+ members",
     "Open for commissions — let's build yours"
   ],

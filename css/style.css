@@ -44,7 +44,9 @@ main, .hero, .nav, footer { position:relative; z-index:1; }
 .hero { min-height:100svh; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; background:radial-gradient(ellipse 58% 55% at 50% 46%, rgba(11,14,20,.52) 0%, rgba(11,14,20,0) 100%), linear-gradient(180deg, rgba(11,14,20,.78) 0%, rgba(11,14,20,.42) 40%, rgba(11,14,20,.48) 70%, rgba(11,14,20,.96) 100%), url('../assets/hero-bg.jpg') center/cover no-repeat; }
 .hero-inner { position:relative; z-index:2; text-align:center; max-width:760px; padding-top:70px; padding-bottom:80px; }
 .kicker { color:var(--muted); text-transform:uppercase; letter-spacing:4px; font-size:.72rem; font-weight:700; margin-bottom:16px; }
-.chip-status { display:inline-flex; align-items:center; gap:8px; background:rgba(21,26,36,.7); border:1px solid var(--line); color:var(--silver); font-size:.8rem; font-weight:500; padding:7px 16px; border-radius:999px; margin-bottom:26px; }
+.chips { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-bottom:26px; }
+.chip-status { display:inline-flex; align-items:center; gap:8px; background:rgba(21,26,36,.7); border:1px solid var(--line); color:var(--silver); font-size:.8rem; font-weight:500; padding:7px 16px; border-radius:999px; }
+.chip-status.xp b { color:var(--ice); font-weight:700; }
 .chip-status i { width:8px; height:8px; border-radius:50%; background:#4ade80; box-shadow:0 0 10px #4ade80; animation:pulse 2.4s ease-in-out infinite; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
 .chip-status.hidden { display:none; }
