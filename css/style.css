@@ -238,6 +238,7 @@ footer { border-top:1px solid var(--line); padding:40px 0; background:rgba(11,14
   .skills-grid { grid-template-columns:1fr; }
   .minigrid { grid-template-columns:1fr; }
   .gcard { width:200px; }
+  .hero { background:radial-gradient(ellipse 70% 45% at 50% 46%, rgba(11,14,20,.52) 0%, rgba(11,14,20,0) 100%), linear-gradient(180deg, rgba(11,14,20,.78) 0%, rgba(11,14,20,.42) 40%, rgba(11,14,20,.48) 70%, rgba(11,14,20,.96) 100%), url('../assets/hero-bg-mobile.jpg') center/cover no-repeat; }
   .workrow, .workrow:nth-child(even) { flex-direction:column; gap:20px; }
   .workrows { gap:52px; }
   .section { padding:84px 0; }
