@@ -14,9 +14,15 @@ const SITE = {
   discord: "Sparky2668",          // what the copy button copies
   email: "you@example.com",
   socials: [
-    { label: "Roblox",  url: "https://www.roblox.com/" },
-    { label: "X / Twitter", url: "https://x.com/SparkyDeveloper" },
-    { label: "YouTube", url: "https://youtube.com/" }
+    { label: "Roblox",  url: "https://www.roblox.com/users/2529181922/profile" },
+    { label: "X / Twitter", url: "https://x.com/SparkyDeveloper" }
+  ],
+
+  // typed line under the groups strip
+  typerPhrases: [
+    "Contributed to games with 500M+ combined visits",
+    "Trusted by communities with 2.2M+ members",
+    "Open for commissions — let's build yours"
   ],
 
   // notable groups I've delivered work for — icons in assets/groups/

@@ -191,6 +191,29 @@ const io = new IntersectionObserver(es => {
 }, { threshold: .15 });
 document.querySelectorAll('.reveal').forEach(n => io.observe(n));
 
+// ---- typewriter line ----
+(function () {
+  const t = $('#typed');
+  if (!t) return;
+  const phrases = cfg.typerPhrases || ['Open for commissions'];
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { t.textContent = phrases[0]; return; }
+  let pi = 0, ci = 0, del = false;
+  function step() {
+    const p = phrases[pi];
+    if (!del) {
+      ci++;
+      t.textContent = p.slice(0, ci);
+      if (ci === p.length) { del = true; return setTimeout(step, 2300); }
+      return setTimeout(step, 45 + Math.random() * 45);
+    }
+    ci--;
+    t.textContent = p.slice(0, ci);
+    if (ci === 0) { del = false; pi = (pi + 1) % phrases.length; return setTimeout(step, 400); }
+    setTimeout(step, 20);
+  }
+  step();
+})();
+
 // ---- starfield ----
 (function () {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
