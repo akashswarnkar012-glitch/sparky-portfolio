@@ -38,9 +38,9 @@ function render() {
       else ico.textContent = s.icon;
       card.append(ico, el('h3', null, s.name), el('p', null, s.blurb));
       const lvl = el('div', 'lvlrow');
-      lvl.append(el('span', null, 'Skill level'), el('b', null, s.level + '%'));
+      lvl.append(el('span', null, 'Skill level'));
       const m = el('div', 'meter'), bar = el('i');
-      bar.style.setProperty('--lvl', s.level / 100);
+      bar.style.setProperty('--lvl', 1);
       m.append(bar);
       card.append(lvl, m);
       $('#skillsGrid').append(card);
