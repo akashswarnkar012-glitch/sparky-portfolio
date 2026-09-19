@@ -33,11 +33,16 @@ function render() {
   for (const s of cfg.skills) {
     try {
       const card = el('div', 'skill reveal');
-      card.append(el('div', 'ico', s.icon), el('h3', null, s.name), el('p', null, s.blurb));
+      const ico = el('div', 'ico');
+      if (/\.(svg|png)$/i.test(s.icon)) { const im = el('img'); im.src = s.icon; im.alt = ''; ico.append(im); }
+      else ico.textContent = s.icon;
+      card.append(ico, el('h3', null, s.name), el('p', null, s.blurb));
+      const lvl = el('div', 'lvlrow');
+      lvl.append(el('span', null, 'Skill level'), el('b', null, s.level + '%'));
       const m = el('div', 'meter'), bar = el('i');
       bar.style.setProperty('--lvl', s.level / 100);
       m.append(bar);
-      card.append(m);
+      card.append(lvl, m);
       $('#skillsGrid').append(card);
     } catch (e) { console.warn('skipped skill', s, e); }
   }
@@ -53,10 +58,17 @@ function render() {
       media.append(img);
       media.onclick = () => openLb(i);
       const info = el('div', 'info');
-      info.append(el('span', 'tag', p.cat), el('h3', null, p.title), el('p', null, p.blurb));
-      const btn = el('button', 'pillbtn', 'View full size');
-      btn.onclick = () => openLb(i);
-      info.append(btn);
+      info.append(el('span', 'tag', p.cat), el('h3', null, p.title), el('div', 'rule'), el('p', null, p.blurb));
+      const btns = el('div', 'rowbtns');
+      const vb = el('button', 'btn-view', 'View full size ⤢');
+      vb.onclick = () => openLb(i);
+      btns.append(vb);
+      if (p.post) {
+        const pb = el('a', 'btn-post', 'See the post ↗');
+        pb.href = p.post; pb.target = '_blank'; pb.rel = 'noopener noreferrer';
+        btns.append(pb);
+      }
+      info.append(btns);
       row.append(media, info);
       $('#workRows').append(row);
     } catch (e) { console.warn('skipped project', p, e); }
@@ -80,25 +92,26 @@ function render() {
   const xcard = el('a', 'xcard reveal');
   xcard.href = xSocial ? xSocial.url : 'https://x.com/';
   xcard.target = '_blank'; xcard.rel = 'noopener noreferrer';
-  xcard.append(el('span', 'xmark', '𝕏'), el('div', 'xtitle', 'View More on X →'), el('div', 'xsub', 'New work posted regularly'));
+  xcard.append(el('span', 'xmark', '𝕏'), el('div', 'xtitle', 'See more work on X →'), el('div', 'xsub', 'New builds posted regularly'));
   $('#miniGrid').append(xcard);
 
-  // worked-with groups strip
-  for (const g of (cfg.groups || [])) {
-    try {
-      const a = el('a', 'gcard reveal');
-      a.href = g.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
-      const ic = el('img', 'gicon');
-      ic.src = g.icon; ic.alt = g.name;
-      ic.onerror = () => ic.remove();
-      const meta = el('div');
-      const nm = el('div', 'gname', g.name);
-      if (g.verified) nm.append(el('span', 'gcheck', ' ✓'));
-      meta.append(nm, el('div', 'gmem', g.members + ' members'));
-      a.append(ic, meta);
-      $('#groupsRow').append(a);
-    } catch (e) { console.warn('skipped group', g, e); }
-  }
+  // worked-with groups — marquee train, cards doubled for seamless loop
+  const gcard = g => {
+    const a = el('a', 'gcard');
+    a.href = g.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+    const ic = el('img', 'gicon');
+    ic.src = g.icon; ic.alt = g.name;
+    ic.onerror = () => ic.remove();
+    const meta = el('div');
+    const nm = el('div', 'gname', g.name);
+    if (g.verified) nm.append(el('span', 'gcheck', ' ✓'));
+    meta.append(nm, el('div', 'gmem', g.members + ' members'));
+    a.append(ic, meta);
+    return a;
+  };
+  for (const g of (cfg.groups || [])) { try { $('#groupsRow').append(gcard(g)); } catch (e) { console.warn('skipped group', g, e); } }
+  for (const g of (cfg.groups || [])) { try { $('#groupsRow').append(gcard(g)); } catch (e) { console.warn('skipped group', g, e); } }
+  $('#groupsRow').style.setProperty('--gdur', (cfg.groups || []).length * 5 + 's');
 
   // vouches (twice for seamless loop)
   const vouchCard = v => {

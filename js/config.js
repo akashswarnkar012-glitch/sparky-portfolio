@@ -35,17 +35,17 @@ const SITE = {
   ],
 
   skills: [
-    { name: "Building",     level: 95, icon: "🏗️", blurb: "Showcase-grade environment builds with proper lighting and detail passes." },
-    { name: "Map Design",   level: 90, icon: "🗺️", blurb: "Playable layouts that flow — sightlines, routes and pacing thought through." },
-    { name: "3D Modeling",  level: 85, icon: "🧊", blurb: "Clean low-poly to mid-poly assets, optimized for Roblox performance." },
-    { name: "Communication",level: 98, icon: "💬", blurb: "Clear updates, honest timelines, revisions handled without drama." }
+    { name: "Building",     level: 95, icon: "assets/icons/building.svg", blurb: "Showcase-grade environment builds with proper lighting and detail passes." },
+    { name: "Map Design",   level: 90, icon: "assets/icons/map.svg", blurb: "Playable layouts that flow — sightlines, routes and pacing thought through." },
+    { name: "3D Modeling",  level: 85, icon: "assets/icons/blender.svg", blurb: "Clean low-poly to mid-poly assets in Blender, optimized for Roblox performance." },
+    { name: "Communication",level: 98, icon: "assets/icons/chat.svg", blurb: "Clear updates, honest timelines, revisions handled without drama." }
   ],
 
   projects: [
-    { title: "Space Station Map", cat: "maps", img: "assets/work/space-station.jpg", blurb: "Commissioned space station map for @localnightdev — full interior with glass dome, neon signage and custom lighting." },
-    { title: "Grand Manor Hall", cat: "builds", img: "assets/work/manor-hall.jpg", blurb: "Luxury manor great hall — double balconies, grand staircase, checkered marble and warm candlelit detailing." },
-    { title: "Oriental Temple Grounds", cat: "maps", img: "assets/work/oriental-temple.jpg", blurb: "Stylized oriental water temple — moon-gate arches, lantern bridges and soft god-ray lighting." },
-    { title: "Boho Salon", cat: "builds", img: "assets/work/salon.jpg", blurb: "Commissioned storefront + street scene for @BohoSalonn's grand reopening — palms, flower beds and neon signage." },
+    { title: "Space Station Map", cat: "maps", img: "assets/work/space-station.jpg", post: "https://x.com/SparkyDeveloper/status/1836270895373189597", blurb: "Commissioned space station map for @localnightdev — full interior with glass dome, neon signage and custom lighting." },
+    { title: "Grand Manor Hall", cat: "builds", img: "assets/work/manor-hall.jpg", post: "https://x.com/SparkyDeveloper/status/1865359179017601080", blurb: "Luxury manor great hall — double balconies, grand staircase, checkered marble and warm candlelit detailing." },
+    { title: "Oriental Temple Grounds", cat: "maps", img: "assets/work/oriental-temple.jpg", post: "https://x.com/SparkyDeveloper/status/1980925881939034385", blurb: "Stylized oriental water temple — moon-gate arches, lantern bridges and soft god-ray lighting." },
+    { title: "Boho Salon", cat: "builds", img: "assets/work/salon.jpg", post: "https://x.com/SparkyDeveloper/status/1901628418778714550", blurb: "Commissioned storefront + street scene for @BohoSalonn's grand reopening — palms, flower beds and neon signage." },
   ],
 
   // smaller cards in the "More builds" grid — same format, click opens fullscreen too
@@ -53,7 +53,9 @@ const SITE = {
     { title: "Anime Street", cat: "maps", img: "assets/work/anime-street.jpg", blurb: "Anime-style Japanese street — full block with storefronts, crosswalks and cel-shaded sky vibes." },
     { title: "Neon Sci-Fi Corridor", cat: "builds", img: "assets/work/neon-corridor.jpg", blurb: "Glow-heavy sci-fi interior with teleporter pods and layered neon lighting." },
     { title: "New Vegas Wasteland", cat: "maps", img: "assets/work/new-vegas.jpg", blurb: "Post-apocalyptic strip environment — ruined overpasses, casino skyline and dusty sunset atmosphere." },
-    { title: "Sky Temple", cat: "maps", img: "assets/work/sky-temple.jpg", blurb: "Dreamlike sky-temple map — pastel colonnades, domed pavilion and glowing braziers above the clouds." }
+    { title: "Sky Temple", cat: "maps", img: "assets/work/sky-temple.jpg", blurb: "Dreamlike sky-temple map — pastel colonnades, domed pavilion and glowing braziers above the clouds." },
+    { title: "Space Station Map", cat: "maps", img: "assets/work/space-station.jpg", blurb: "Commissioned space station map for @localnightdev — glass dome, neon signage, custom lighting." },
+    { title: "Oriental Temple Grounds", cat: "maps", img: "assets/work/oriental-temple.jpg", blurb: "Stylized oriental water temple — moon-gate arches, lantern bridges and soft god-ray lighting." }
   ],
 
   // reviews section hides itself while this is empty — add real vouches like:
